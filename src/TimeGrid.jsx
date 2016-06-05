@@ -122,18 +122,17 @@ let TimeGrid = React.createClass({
           </div>
         </div>
         <div ref='content' className='rbc-time-content'>
-          <TimeGutter ref='gutter' {...this.props}/>
+          <TimeGutter ref='gutter' {...this.props} />
           {
-            this.renderEvents(range, rangeEvents)
+            this.renderEvents(range, rangeEvents, this.props.now)
           }
         </div>
       </div>
     );
   },
 
-  renderEvents(range, events){
+  renderEvents(range, events, today){
     let { min, max, endAccessor, startAccessor, components } = this.props;
-    let today = new Date();
 
     return range.map((date, idx) => {
       let daysEvents = events.filter(

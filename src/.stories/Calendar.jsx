@@ -52,3 +52,38 @@ storiesOf('module.Calendar', module)
       </div>
     )
   })
+
+  .add('selectable, 3 slices', () => {
+    return (
+      <div style={{height: 600}}>
+        <Calendar
+          selectable
+          slices={3}
+          min={moment('12:00am', 'h:mma').toDate()}
+          max={moment('11:59pm', 'h:mma').toDate()}
+          events={events}
+          onSelectEvent={action('event selected')}
+          onSelectSlot={action('slot selected')}
+          defaultDate={new Date()}
+        />
+      </div>
+    )
+  })
+
+  .add('selectable, 9 slices, force now to 9:30am', () => {
+    return (
+      <div style={{height: 600}}>
+        <Calendar
+          selectable
+          slices={9}
+          now={moment('9:30am', 'h:mma').toDate()}
+          min={moment('12:00am', 'h:mma').toDate()}
+          max={moment('11:59pm', 'h:mma').toDate()}
+          events={events}
+          onSelectEvent={action('event selected')}
+          onSelectSlot={action('slot selected')}
+          defaultDate={new Date()}
+        />
+      </div>
+    )
+  })

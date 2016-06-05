@@ -309,7 +309,17 @@ let Calendar = React.createClass({
       day: PropTypes.node,
       agenda: PropTypes.node,
       showMore: PropTypes.func
-    })
+    }),
+
+    /**
+     * The current date and time
+     */
+    now: PropTypes.instanceOf(Date),
+
+    /**
+     * The number of slices to display per time value in week and day view
+     */
+    slices: PropTypes.number
   },
 
   getDefaultProps() {
@@ -323,7 +333,9 @@ let Calendar = React.createClass({
       titleAccessor: 'title',
       allDayAccessor: 'allDay',
       startAccessor: 'start',
-      endAccessor: 'end'
+      endAccessor: 'end',
+      now: new Date(),
+      slices: 2
     };
   },
 
